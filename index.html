@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VO - PaaS · Static Sample</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 flex items-center justify-center p-6">
+  <div class="max-w-xl w-full bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl p-10 border border-sky-100">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">VO</div>
+      <div>
+        <div class="text-xs uppercase tracking-wider text-sky-600 font-semibold">VO - PaaS</div>
+        <div class="text-sm text-slate-500">Static · Nixpacks → nginx</div>
+      </div>
+    </div>
+
+    <h1 class="text-3xl font-bold text-slate-900 mb-3">
+      Hello from <span class="text-sky-600">VO - PaaS Static</span>
+    </h1>
+    <p class="text-slate-600 mb-6 leading-relaxed">
+      Deployed via <span class="font-semibold text-slate-800">Nixpacks</span> &rarr; served by <span class="font-semibold text-slate-800">nginx</span>.
+      Just push, we go live.
+    </p>
+
+    <div class="space-y-3 mb-6">
+      <div class="flex justify-between items-center bg-sky-50 rounded-xl px-4 py-3 border border-sky-100">
+        <span class="text-slate-500 text-sm">Hostname</span>
+        <code id="hostname" class="text-sky-700 font-mono text-sm"></code>
+      </div>
+      <div class="flex justify-between items-center bg-sky-50 rounded-xl px-4 py-3 border border-sky-100">
+        <span class="text-slate-500 text-sm">Counter</span>
+        <span id="counter" class="text-sky-700 font-mono text-lg font-bold">0</span>
+      </div>
+    </div>
+
+    <button id="bump"
+      class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-xl transition-all">
+      Click me (+1)
+    </button>
+
+    <p class="text-center text-xs text-slate-400 mt-6">
+      Pure static HTML · auto-detected by Nixpacks
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('hostname').textContent = location.hostname;
+    let n = 0;
+    document.getElementById('bump').addEventListener('click', () => {
+      n++;
+      document.getElementById('counter').textContent = n;
+    });
+  </script>
+</body>
+</html>
